@@ -16,12 +16,6 @@ Vue.component('componente-cotizar', {
 		};
 	},
 
-	computed: {
-			hayErrores() {
-				return this.errores.length; // Devuelve la cantidad de errores
-			}
-	},
-
 	template: `
 		<div class="div_cotizar">
 			
@@ -64,13 +58,13 @@ Vue.component('componente-cotizar', {
 					<button type="button" class="button_home" v-on:click="guardar" value="Enviar">Enviar</button>
 				</form>
 			</section>
-
-			<section class="section_errores" v-if="submitted && hayErrores">
-				<ul>
-					<li v-for="x in errores">{{x}}</li>
-				</ul>
-			</section>	
-			</section>
+				
+			<transition-group tag="ul" class="section_errores" v-show="submitted" enter-active-class="animate__animated animate__bounceInLeft" leave-active-class=" animate__animated animate__backOutLeft">
+				<li v-for="(x,index) in errores" :key="x">
+					<span> {{x}} </span>
+				</li>
+			</transition-group>
+			
 		</div>
 	`,
 	methods: {

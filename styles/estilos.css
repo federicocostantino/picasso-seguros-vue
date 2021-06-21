@@ -119,6 +119,10 @@ label, input {
 	font-size: 1.5em;
 }
 
+.section_errores span {
+	color: #D5E915;
+}
+
 /*  INFORMACIÓN  */
 
 .div_informacion h2 {
