@@ -1,37 +1,106 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+
+	<!-- Instalación Vuetify -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  	<link href="https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css" rel="stylesheet">
+ 	<link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+
+ 	<!-- Instalación Animate.css-->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+	
+	<!-- Estilos CSS -->
+	<link rel="stylesheet" type="text/css" href="styles/estilos.css">
 	
 	<!-- Instalación de Vue -->
 	<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 	<!-- Instalación Vue Filters -->
 	<script src="scripts/vue2-filters.js"></script>
 
-	<!-- Instalación Animate.css-->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-	<link rel="stylesheet" type="text/css" href="styles/estilos.css">
+	
 
 	<title>Picasso Seguros</title>
 </head>
 <body>
 
 	<div id="app" v-cloak>
-		
-		<h1 class="animate__animated animate__slideInDown">{{h1 | capitalize}}</h1>
 
-		<ul class="ul_menu">
-			<li><router-link to="/">Home</router-link></li>
-			<li><router-link to="/cotizar">Cotizador</router-link></li>	
-			<li style="display: none;"><router-link to="/informacion">Información</router-link></li>
-		</ul>
+		<v-app id="inspire">
+  			
+  			<v-navigation-drawer v-model="drawer" app>
+    			<v-card class="mx-auto" max-width="300" tile>
+					<v-list id="v-list-nav" flat>
+        				<v-list-item-group v-model="selectedItem" color="secondary">
+        					<!--
+        						array 'items' que posee las propiedades 'path', 'icon' y 'titulo' de cada ruta
+        					-->
+          					<v-list-item v-for="(item, i) in items" :key="i" :to="item.path">
+          						<v-list-item-icon>
+          							<v-icon v-text="item.icon"></v-icon>
+          						</v-list-item-icon>
+          						<v-list-item-content>
+          							<v-list-item-title v-text="item.titulo"></v-list-item-title>
+          						</v-list-item-content>
+          					</v-list-item>
+          				</v-list-item-group>
+          			</v-list>
+          		</v-card>
+          	</v-navigation-drawer>
 
+  			<v-app-bar class="secondary" dense prominent app>
+     			<v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
+      			<v-toolbar-title>
+      				<h1 v-on:click="redirectHome" class="animate__animated animate__slideInDown">{{h1 | capitalize}}</h1>
+      			</v-toolbar-title>
+    		</v-app-bar>
+
+			
+<!--			<v-navigation-drawer v-model="drawer" absolute temporary>
+  				<v-list nav dense>
+  					<v-list-item-group v-model="group" active-class="deep-purple--text text--accent-4">
+  						<v-list-item v-for="(item, i) in items" :key="i" :to="item.path">
+      						<v-list-item-icon>
+      							<v-icon v-text="item.icon"></v-icon>
+      						</v-list-item-icon>
+      						<v-list-item-content>
+      							<v-list-item-title v-text="item.titulo"></v-list-item-title>
+      						</v-list-item-content>
+      					</v-list-item>
+  					</v-list-item-group>
+  				</v-list>
+  			</v-navigation-drawer>
+
+  			<v-app-bar color="primary" dense dark>
+				<v-app-bar-nav-icon @click="drawer = true"></v-app-bar-nav-icon>
+				<v-toolbar-title><h1>{{h1 | capitalize}}</h1></v-toolbar-title>
+			</v-app-bar>
+-->
+      		
+			<!-- Sizes your content based upon application components -->
+  			<v-main>
+
+   				<!-- Provides the application the proper gutter -->
+    			<v-container fluid>
+
+			    	<!-- If using vue-router -->
+			    	<transition name="slide-fade" mode="out-in">
+						<router-view></router-view>
+					</transition>
+
+    			</v-container>
+  			</v-main>
+        </v-app>
+<!--
 		<transition name="slide-fade" mode="out-in">
 			<router-view></router-view>
 		</transition>
-
-		<footer>
-			<ul>
+-->
+		<v-footer padless>
+    		<v-col class="text-center" cols="12">
+    		<ul>
 				<li>Alumno: Federico Costantino</li>
 				<li>Comisión: DWN3A</li>
 				<li>Trabajo Práctico 1</li>
@@ -39,9 +108,13 @@
 				<li>Docente: Mabel García</li>
 				<li>Año: 2021</li>
 			</ul>
-		</footer>
+    		</v-col>
+    	</v-footer>
 
 	</div>
+
+	<!-- Instalación Vuetify -->
+  	<script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
 
 	<!-- Instalación Vue Router -->
 	<script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>

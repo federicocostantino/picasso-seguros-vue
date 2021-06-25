@@ -38,7 +38,36 @@ const router = new VueRouter({
 const app = new Vue ({
 	el: "#app",
 	router,
-	data: {
+	vuetify: new Vuetify({
+		theme: {
+			themes: {
+				// Puede ser "light" o "dark".
+				light: {
+		       		primary: "#080EB8",
+				    secondary: "#D5E915",
+				    accent: "#795548",
+				    error: "#f44336",
+				    warning: "#ffeb3b",
+				    info: "#00bcd4",
+				    success: "#4caf50",
+      			},
+			},
+		},
+	}),
+	data: () => ({
 		h1: "picasso seguros",
-	}
-})
+	    // Configuración v-navigation-drawer (barra de navegación izquierda).
+	    selectedItem: 1,
+	    items: [
+	    	{ path: '/', icon: 'mdi-home', titulo: 'Home' },
+	    	{ path: '/cotizar', icon: 'mdi-star', titulo: 'Cotizar' },
+	    ],
+	    drawer: "",
+    	group: null,
+  	}),
+  	methods: {
+  		redirectHome() {
+  			this.$router.push("/");
+  		},
+  	},
+});
