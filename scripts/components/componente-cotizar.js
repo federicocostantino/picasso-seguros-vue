@@ -47,7 +47,7 @@ Vue.component('componente-cotizar', {
 				</p>
 			</section>
 
-			<v-form ref="form" v-model="valid" lazy-validation>
+			<v-form class="form" ref="form" v-model="valid" lazy-validation>
 				<!-- E-mail -->
 				<v-text-field v-model="form_data.email" :rules="emailRules" label="E-mail" required></v-text-field>
 
@@ -64,10 +64,15 @@ Vue.component('componente-cotizar', {
 				<v-select v-model="form_data.cochera" :items="aSiNo" :rules="[v => !!v || 'Debe seleccionar si guarda su vehículo en cochera']" label="¿Cochera?" required></v-select>
 
 				<!-- GNC -->
-				<v-select v-model="form_data.gnc" :items="aSiNo" :rules="[v => !!v || 'Debe seleccionar si su vehículo posee GNC']" label="¿Cochera?" required></v-select>
+				<v-select v-model="form_data.gnc" :items="aSiNo" :rules="[v => !!v || 'Debe seleccionar si su vehículo posee GNC']" label="¿GNC?" required></v-select>
 
 				<v-checkbox v-model="checkbox" :rules="[v => !!v || 'Debe seleccionar si es un humano o no ;)']" label="Soy un humano" required></v-checkbox>
 
+				<!--
+					Anotación al docente:
+					En la consola, me tira un "warning" porque los dos botones tienen la misma clase.
+					¿Cómo lo resolvería si quiero que tengan los mismos estilos?
+				-->
 				<v-btn :disabled="!valid" color="success" class="mr-4" class="button_home" @click="guardar">Enviar</v-btn>
 
 				<v-btn color="error" class="mr-4" @click="reset" class="button_home">Resetear formulario</v-btn>

@@ -3,7 +3,7 @@
 * {
 	font-family: Calibri;
 	letter-spacing: 1px;
-	color: #080EB8;
+	color: black;
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
@@ -13,7 +13,7 @@ h1 {
 	font-size: 1.75em;
 	width: 46.5vw;
 	height:70px;
-	color: #D7DDAA;
+	color: white;
 	cursor: pointer;
 }
 
@@ -36,26 +36,29 @@ label, input {
 
 /**	HEADER	**/
 
-/*	Toolbar Index	*/
-.v-toolbar__content {
-	background-color: #080EB8;
-}
-
 /*	Botón links	*/
 .v-btn {
 	margin-left: 30px !important;
 	margin-top: 30px;
-	color: #D7DDAA !important;
+	color: white !important;
 }
 
 /*	Barra lateral izquierda	*/
 .v-navigation-drawer__content {
-	background-color: #D7DDAA !important;
+	background-color: #d93a3e !important;
 }
 
 /*	Lista de secciones	*/
 #v-list-nav {
-	background-color: #D7DDAA !important;
+	background-color: #d93a3e !important;
+}
+
+#item-title-index {
+	color: white;
+}
+
+::before {
+    color: white;
 }
 
 /**	MAIN	**/
@@ -68,12 +71,9 @@ label, input {
 }
 
 .div_home {
-	display: flex;
 	width: 100%;
-	align-items: center;
-	justify-content: center;
 }
-
+/*
 .div_home section {
 	text-align: center;
 	margin-bottom: 100px;
@@ -90,14 +90,38 @@ label, input {
 
 .div_home p , .button_home {
 	font-size: 1.25em;
+}*/
+
+.div_home .section_carousel {
+	margin-top: 50px;
+	width: 100%;
+}
+
+/* Imagen actual del slider. */
+.v-window-item {
+	cursor: pointer;
+}
+
+.section_home_2 {
+	margin-top: 50px;
+	text-align: center;
+}
+
+.section_home_2 h2 {
+	font-size: 3em;
+}
+
+.section_home_2 p {
+	font-size: 1.5em;
 }
 
 .button_home {
-	margin-top: 40px;
+	margin: 25px auto;
 	padding: 10px 40px;
 	border: none;
-	border-radius:  15px;
-	background: #D7DDAA;
+	border-radius: 15px;
+	background: #d93a3e;
+	color: white;
 	cursor: pointer;
 	display: block;
 	box-shadow: 2px 2px 2px #080EB8;
@@ -118,6 +142,10 @@ label, input {
 .v-form {
 	width: 30% !important;
 	margin: 0 auto 50px auto;
+}
+
+.form ::before {
+    color: black;
 }
 
 /*  INFORMACIÓN  */
@@ -142,7 +170,7 @@ label, input {
 .section_informacion {
 	text-align: center;
 	width: 30%;
-	background-color: #D7DDAA;
+	background-color: #d93a3e;
 	box-shadow: 2px 2px 2px black;
 	border-radius: 30px;
 	padding: 10px;
@@ -151,6 +179,7 @@ label, input {
 
 .section_informacion h3 {
 	margin-bottom: 20px;
+	color: white;
 }
 
 .section_informacion .v-card {
@@ -158,23 +187,51 @@ label, input {
 }
 
 .section_informacion .v-list-item {
-	background-color: #D7DDAA;
+	background-color: #d93a3e;
+}
+
+.v-list-item__title {
+    color: white;
+}
+
+.v-list-item__subtitle {
+    color: white !important;
 }
 
 /**	FOOTER	**/
 
-.text-center{
-	background-color: #080EB8;
-	padding: 15px;
+footer {
+	margin-top: 50px;
 }
 
-footer ul {
+.text-center{
+	background-color: #d93a3e !important;
+	text-align: left;
+}
+
+.v-card__text {
+    display: flex;
+    justify-content: center;
+    background-color: #d93a3e !important;
+    padding: 0 !important;
+    margin-bottom: 25px;
+}
+
+ul {
 	text-align: center;
 }
 
+.v-application ol, .v-application ul {
+    padding-left: 0 !important;
+}
+
 footer li {
-	color: #D7DDAA;
+	color: white;
 	display: block;
+}
+
+.indigo.lighten-1.black--text.text-center.v-card.v-card--flat.v-sheet.theme--light.rounded-0 {
+    background-color: #d93a3e;
 }
 
 /* TRANSICIONES */

@@ -43,8 +43,8 @@ const app = new Vue ({
 			themes: {
 				// Puede ser "light" o "dark".
 				light: {
-		       		primary: "#080EB8",
-				    secondary: "#D5E915",
+		       		primary: "#000000",
+				    secondary: "#d93a3e",
 				    accent: "#795548",
 				    error: "#f44336",
 				    warning: "#ffeb3b",
@@ -64,6 +64,12 @@ const app = new Vue ({
 	    ],
 	    drawer: "",
     	group: null,
+    	icons: [
+		    {icono:'mdi-facebook',src:'https://www.facebook.com'},
+		    {icono:'mdi-twitter',src:'https://www.twitter.com'},
+		    {icono:'mdi-linkedin',src:'https://www.linkedin.com/in/federicocostantino/'},
+		    {icono:'mdi-instagram',src:'https://www.instagram.com'},
+		],
   	}),
   	methods: {
   		redirectHome() {
